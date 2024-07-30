@@ -2,7 +2,7 @@ import requests as req
 import json
 import pandas as pd
 from fake_useragent import UserAgent
-import time
+# import time
 import os
 
 # 隨機取得 User-Agent
@@ -64,4 +64,4 @@ def fetch_and_write_data():
         print("Error:", e)
 while True:
     fetch_and_write_data()
-    time.sleep(600)
+    # time.sleep(600)
