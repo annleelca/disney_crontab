@@ -607,5 +607,26 @@
         "FacilityID": "165",
         "UpdateTime": "12:32",
         "datetime": "2024-07-30 11:35"
+    },
+    {
+        "FacilityName": "\u30ac\u30b8\u30a7\u30c3\u30c8\u306e\u30b4\u30fc\u30b3\u30fc\u30b9\u30bf\u30fc",
+        "StandbyTime": "5",
+        "FacilityID": "179",
+        "UpdateTime": "12:38",
+        "datetime": "2024-07-30 11:40"
+    },
+    {
+        "FacilityName": "\u30b9\u30da\u30fc\u30b9\u30fb\u30de\u30a6\u30f3\u30c6\u30f3",
+        "StandbyTime": "115",
+        "FacilityID": "184",
+        "UpdateTime": "12:34",
+        "datetime": "2024-07-30 11:40"
+    },
+    {
+        "FacilityName": "\u30d9\u30a4\u30de\u30c3\u30af\u30b9\u306e\u30cf\u30c3\u30d4\u30fc\u30e9\u30a4\u30c9",
+        "StandbyTime": "50",
+        "FacilityID": "196",
+        "UpdateTime": "12:35",
+        "datetime": "2024-07-30 11:40"
     }
 ]
