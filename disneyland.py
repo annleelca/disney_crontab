@@ -28,22 +28,22 @@ if res.status_code == 200:
                     existing_data = json.load(f)
     else:
         existing_data = []
-# 合併新舊資料並去重複
-combined_data = existing_data.copy()
-for item in new_data:
-    exists = False
-    for existing_item in existing_data:
-        if existing_item['FacilityID'] == item['FacilityID'] and existing_item['UpdateTime'] == item['UpdateTime']:exists = True
-        break
-                
-    if not exists:
-        combined_data.append({
-            'FacilityName': item['FacilityName'],
-            'StandbyTime': item['StandbyTime'],
-            'FacilityID': item['FacilityID'],
-            'UpdateTime': item['UpdateTime'],
-            'datetime': pd.Timestamp.now().strftime("%Y-%m-%d %H:%M")
-            })
+        
+    # 合併新舊資料並去重複
+    combined_data = existing_data.copy()
+    for item in new_data:
+        exists = False
+        for existing_item in existing_data:
+            if existing_item['FacilityID'] == item['FacilityID'] and existing_item['UpdateTime'] == item['UpdateTime']:exists = True
+            break
+                    
+        if not exists:
+            combined_data.append({
+                'StandbyTime': item['StandbyTime'],
+                'FacilityID': item['FacilityID'],
+                'UpdateTime': item['UpdateTime'],
+                'datetime': pd.Timestamp.now().strftime("%Y-%m-%d %H:%M")
+                })
 
 # 寫入 JSON 文件
 with open(file_path, "w") as f:
