@@ -1,0 +1,212 @@
+[
+    {
+        "FacilityName": "アクアトピア",
+        "FacilityID": "234",
+        "FacilityMandarin": "水上逗趣船",
+        "FacilityEnglish": "Aquatopia"
+    },
+    {
+        "FacilityName": "アナとエルサのフローズンジャーニー",
+        "FacilityID": "255",
+        "FacilityMandarin": "安娜與艾莎的冰雪之旅",
+        "FacilityEnglish": "Anna and Elsa's Frozen Journey"
+    },
+    {
+        "FacilityName": "アリエルのプレイグラウンド",
+        "FacilityID": "202",
+        "FacilityMandarin": "艾莉兒遊樂園",
+        "FacilityEnglish": "Ariel's Playground"
+    },
+    {
+        "FacilityName": "インディ・ジョーンズ・アドベンチャー：クリスタルスカルの魔宮",
+        "FacilityID": "222",
+        "FacilityMandarin": "印第安納瓊斯冒險旅程：水晶骷髏頭魔宮",
+        "FacilityEnglish": "Indiana Jones Adventure: Temple of the Crystal Skull"
+    },
+    {
+        "FacilityName": "キャラバンカルーセル",
+        "FacilityID": "236",
+        "FacilityMandarin": "沙漠商隊旋轉木馬",
+        "FacilityEnglish": "Caravan Carousel"
+    },
+    {
+        "FacilityName": "シンドバッド・ストーリーブック・ヴォヤッジ",
+        "FacilityID": "235",
+        "FacilityMandarin": "辛巴達傳奇之旅",
+        "FacilityEnglish": "Sindbad's Storybook Voyage"
+    },
+    {
+        "FacilityName": "ジャスミンのフライングカーペット",
+        "FacilityID": "220",
+        "FacilityMandarin": "茉莉公主的飛天魔毯",
+        "FacilityEnglish": "Jasmine's Flying Carpets"
+    },
+    {
+        "FacilityName": "ジャンピン・ジェリーフィッシュ",
+        "FacilityID": "239",
+        "FacilityMandarin": "跳耀水母",
+        "FacilityEnglish": "Jumpin' Jellyfish"
+    },
+    {
+        "FacilityName": "スカットルのスクーター",
+        "FacilityID": "238",
+        "FacilityMandarin": "史卡托的寄居蟹",
+        "FacilityEnglish": "Scuttle's Scooter"
+    },
+    {
+        "FacilityName": "センター・オブ・ジ・アース",
+        "FacilityID": "223",
+        "FacilityMandarin": "地心探險之旅",
+        "FacilityEnglish": "Journey to the Center of the Earth"
+    },
+    {
+        "FacilityName": "ソアリン：ファンタスティック・フライト",
+        "FacilityID": "219",
+        "FacilityMandarin": "翱翔：夢幻奇航",
+        "FacilityEnglish": "Soaring: Fantastic Flight"
+    },
+    {
+        "FacilityName": "タワー・オブ・テラー",
+        "FacilityID": "243",
+        "FacilityMandarin": "驚魂古塔",
+        "FacilityEnglish": "Tower of Terror"
+    },
+    {
+        "FacilityName": "タートル・トーク",
+        "FacilityID": "246",
+        "FacilityMandarin": "龜龜漫談",
+        "FacilityEnglish": "Turtle Talk"
+    },
+    {
+        "FacilityName": "ディズニーシー・エレクトリックレールウェイ（アメリカンウォーターフロント）",
+        "FacilityID": "232",
+        "FacilityMandarin": "迪士尼海洋電動鐵路（美國海濱）",
+        "FacilityEnglish": "DisneySea Electric Railway (American Waterfront)"
+    },
+    {
+        "FacilityName": "ディズニーシー・エレクトリックレールウェイ（ポートディスカバリー）",
+        "FacilityID": "231",
+        "FacilityMandarin": "迪士尼海洋電動鐵路（發現港）",
+        "FacilityEnglish": "DisneySea Electric Railway (Port Discovery)"
+    },
+    {
+        "FacilityName": "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）",
+        "FacilityID": "228",
+        "FacilityMandarin": "迪士尼海洋渡輪航線（美國海濱）",
+        "FacilityEnglish": "DisneySea Transit Steamer Line (American Waterfront)"
+    },
+    {
+        "FacilityName": "ディズニーシー・トランジットスチーマーライン（メディテレーニアンハーバー）",
+        "FacilityID": "227",
+        "FacilityMandarin": "迪士尼海洋渡輪航線（地中海港灣）",
+        "FacilityEnglish": "DisneySea Transit Steamer Line (Mediterranean Harbor)"
+    },
+    {
+        "FacilityName": "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）",
+        "FacilityID": "229",
+        "FacilityMandarin": "迪士尼海洋過渡蒸汽船（失落河三角洲）",
+        "FacilityEnglish": "DisneySea Transit Steamer Line (Lost River Delta)"
+    },
+    {
+        "FacilityName": "トイ・ストーリー・マニア！",
+        "FacilityID": "218",
+        "FacilityMandarin": "玩具總動員瘋狂遊戲屋",
+        "FacilityEnglish": "Toy Story Mania!"
+    },
+    {
+        "FacilityName": "ニモ＆フレンズ・シーライダー",
+        "FacilityID": "247",
+        "FacilityMandarin": "海底巡遊艇：尼莫&朋友的海底世界",
+        "FacilityEnglish": "Nemo & Friends SeaRider"
+    },
+    {
+        "FacilityName": "ビッグシティ・ヴィークル",
+        "FacilityID": "233",
+        "FacilityMandarin": "大都會交通工具",
+        "FacilityEnglish": "Big City Vehicles"
+    },
+    {
+        "FacilityName": "ピーターパンのネバーランドアドベンチャー",
+        "FacilityID": "257",
+        "FacilityMandarin": "小飛俠夢幻島歷險記",
+        "FacilityEnglish": "Peter Pan's Neverland Adventure"
+    },
+    {
+        "FacilityName": "ファンタジースプリングス・エントリーウェイ",
+        "FacilityID": "9000",
+        "FacilityMandarin": "幻想泉入口",
+        "FacilityEnglish": "Fantasy Springs Entryway"
+    },
+    {
+        "FacilityName": "フェアリー・ティンカーベルのビジーバギー",
+        "FacilityID": "258",
+        "FacilityMandarin": "奇妙仙子妙妙小車",
+        "FacilityEnglish": "Fairy Tinker Bell's Busy Buggies1"
+    },
+    {
+        "FacilityName": "フォートレス・エクスプロレーション",
+        "FacilityID": "244",
+        "FacilityMandarin": "要塞探險",
+        "FacilityEnglish": "Fortress Explorations"
+    },
+    {
+        "FacilityName": "フォートレス・エクスプロレーション“ザ・レオナルドチャレンジ”",
+        "FacilityID": "245",
+        "FacilityMandarin": "要塞探險「挑戰李奧納多」",
+        "FacilityEnglish": "Fortress Explorations \"The Leonardo Challenge\""
+    },
+    {
+        "FacilityName": "フランダーのフライングフィッシュコースター",
+        "FacilityID": "237",
+        "FacilityMandarin": "小胖的飛魚雲霄飛車",
+        "FacilityEnglish": "Flounder's Flying Fish Coaster"
+    },
+    {
+        "FacilityName": "ブローフィッシュ・バルーンレース",
+        "FacilityID": "240",
+        "FacilityMandarin": "河豚氣球競賽",
+        "FacilityEnglish": "Blowfish Balloon Race"
+    },
+    {
+        "FacilityName": "マジックランプシアター",
+        "FacilityID": "226",
+        "FacilityMandarin": "神燈劇場",
+        "FacilityEnglish": "The Magic Lamp Theater"
+    },
+    {
+        "FacilityName": "マーメイドラグーンシアター",
+        "FacilityID": "221",
+        "FacilityMandarin": "美人魚礁湖劇場",
+        "FacilityEnglish": "Mermaid Lagoon Theater"
+    },
+    {
+        "FacilityName": "ラプンツェルのランタンフェスティバル",
+        "FacilityID": "256",
+        "FacilityMandarin": "樂佩公主天燈盛會",
+        "FacilityEnglish": "Rapunzel's Lantern Festival"
+    },
+    {
+        "FacilityName": "レイジングスピリッツ",
+        "FacilityID": "242",
+        "FacilityMandarin": "忿怒雙神",
+        "FacilityEnglish": "Raging Spirits"
+    },
+    {
+        "FacilityName": "ワールプール",
+        "FacilityID": "241",
+        "FacilityMandarin": "旋轉海藻杯",
+        "FacilityEnglish": "Whirlpool"
+    },
+    {
+        "FacilityName": "ヴェネツィアン・ゴンドラ",
+        "FacilityID": "230",
+        "FacilityMandarin": "威尼斯貢多拉遊船",
+        "FacilityEnglish": "Venetian Gondolas"
+    },
+    {
+        "FacilityName": "海底２万マイル",
+        "FacilityID": "224",
+        "FacilityMandarin": "海底兩萬哩",
+        "FacilityEnglish": "20,000 Leagues Under the Sea"
+    }
+]

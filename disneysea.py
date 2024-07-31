@@ -12,7 +12,7 @@ my_headers = {
     'user-agent': ua.chrome
 }
 
-url = "https://www.tokyodisneyresort.jp/_/realtime/tdl_attraction.json?1714465511332"
+url = "https://www.tokyodisneyresort.jp/_/realtime/tds_attraction.json?1722321043944"
 
 res = req.get(url, headers=my_headers)
         
@@ -22,12 +22,13 @@ if res.status_code == 200:
     new_data = res.json()
 
     # 讀取現有的 JSON 文件
-    file_path = "/Users/chianlee/Desktop/disney/land_data.json"
+    file_path = "/Users/chianlee/Desktop/disney/sea_data.json"
     if os.path.exists(file_path):
         with open(file_path, "r") as f:
                     existing_data = json.load(f)
     else:
         existing_data = []
+        
 # 合併新舊資料並去重複
 combined_data = existing_data.copy()
 for item in new_data:
