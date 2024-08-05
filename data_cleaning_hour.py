@@ -17,7 +17,7 @@ with open(file_path_names, 'r', encoding='utf-8') as file:
 df_data = pd.DataFrame(data)
 df_names = pd.DataFrame(names)
 
-# 刪除 'FacilityName' 欄位並移除 'StandbyTime' 為 null 的行
+# 刪除 'FacilityName' 欄位並移除 'StandbyTime' 為 null, false 的行
 df_data = df_data.drop(columns=['FacilityName'])
 df_data = df_data[df_data['StandbyTime'].notna()]
 df_data = df_data[df_data['StandbyTime'] != False]
