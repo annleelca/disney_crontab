@@ -26,7 +26,7 @@ if res.status_code == 200:
     new_data = res.json()
 
     # 讀取現有的 JSON 文件
-    file_path = "/Users/chianlee/Desktop/disney/land_data.json"
+    file_path = "/Users/chianlee/Desktop/disney/data/land_data.json"
     if os.path.exists(file_path):
         with open(file_path, "r") as f:
                     existing_data = json.load(f)
