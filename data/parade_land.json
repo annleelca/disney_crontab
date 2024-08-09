@@ -1,0 +1,27 @@
+[
+    {
+        "parade_name": "day_parade",
+        "schedule": "daily",
+        "hour": "17"
+    },
+    {
+        "parade_name": "night_parade",
+        "schedule": "daily",
+        "hour": "20"
+    },
+    {
+        "parade_name": "seasonal_parade",
+        "schedule": "2024-07-02 to 2024-09-18",
+        "shows": [
+            {
+                "hour": "10"
+            },
+            {
+                "hour": "13"
+            },
+            {
+                "hour": "15"
+            }
+        ]
+    }
+]

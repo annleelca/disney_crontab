@@ -1,0 +1,51 @@
+[
+    {
+        "FacilityEnglish": "Sindbad's Storybook Voyage",
+        "maintenance_dates": {
+            "start_date": "2024-02-13",
+            "end_date": "2024-09-24"
+        }
+    },
+    {
+        "FacilityEnglish": "Scuttle's Scooter",
+        "maintenance_dates": {
+            "start_date": "2024-08-01",
+            "end_date": "2024-08-15"
+        }
+    },
+    {
+        "FacilityEnglish": "DisneySea Electric Railway (American Waterfront)",
+        "maintenance_dates": {
+            "start_date": "2024-09-04",
+            "end_date": "2024-11-04"
+        }
+    },
+    {
+        "FacilityEnglish": "DisneySea Electric Railway (Port Discovery)",
+        "maintenance_dates": {
+            "start_date": "2024-09-04",
+            "end_date": "2024-11-04"
+        }
+    },
+    {
+        "FacilityEnglish": "Journey to the Center of the Earth",
+        "maintenance_dates": {
+            "start_date": "2024-10-01",
+            "end_date": "2024-11-13"
+        }
+    },
+    {
+        "FacilityEnglish": "20,000 Leagues Under the Sea",
+        "maintenance_dates": {
+            "start_date": "2024-11-14",
+            "end_date": "2024-12-13"
+        }
+    },
+    {
+        "FacilityEnglish": "Aquatopia",
+        "maintenance_dates": {
+            "start_date": "2024-11-14",
+            "end_date": "2024-12-18"
+        }
+    }
+]

@@ -72,6 +72,12 @@
         "FacilityEnglish": "Jungle Cruise: Wildlife Expeditions"
     },
     {
+        "FacilityName": "\u30b9\u30da\u30fc\u30b9\u30fb\u30de\u30a6\u30f3\u30c6\u30f3",
+        "FacilityID": "184",
+        "FacilityMandarin": "太空山",
+        "FacilityEnglish": "Space Mountain"
+    },
+    {
         "FacilityName": "\u30b9\u30a4\u30b9\u30d5\u30a1\u30df\u30ea\u30fc\u30fb\u30c4\u30ea\u30fc\u30cf\u30a6\u30b9",
         "FacilityID": "155",
         "FacilityMandarin": "魯賓遜家族大樹屋",
@@ -94,12 +100,6 @@
         "FacilityID": "162",
         "FacilityMandarin": "飛濺山",
         "FacilityEnglish": "Splash Mountain"
-    },
-    {
-        "FacilityName": "\u30b9\u30da\u30fc\u30b9\u30fb\u30de\u30a6\u30f3\u30c6\u30f3",
-        "FacilityID": "184",
-        "FacilityMandarin": "太空山",
-        "FacilityEnglish": "Space Mountain"
     },
     {
         "FacilityName": "\u30c1\u30c3\u30d7\u3068\u30c7\u30fc\u30eb\u306e\u30c4\u30ea\u30fc\u30cf\u30a6\u30b9",

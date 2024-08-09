@@ -4,8 +4,8 @@ import json
 from datetime import timedelta
 
 # 讀取 JSON 檔案
-file_path = '/Users/chianlee/Desktop/disney/data/sea_data.json'
-file_path_names = '/Users/chianlee/Desktop/disney/data/sea_namelist.json'
+file_path = '/Users/chianlee/Desktop/disney/data/land_data.json'
+file_path_names = '/Users/chianlee/Desktop/disney/data/land_namelist.json'
 
 with open(file_path, 'r', encoding='utf-8') as file:
     data = json.load(file)
@@ -20,6 +20,7 @@ df_names = pd.DataFrame(names)
 # 刪除 'FacilityName' 欄位並移除 'StandbyTime' 為 null, false 的行
 df_data = df_data.drop(columns=['FacilityName'])
 df_data = df_data[df_data['StandbyTime'].notna()]
+df_data = df_data.dropna()  # 移除包含 NaN 的行
 df_data = df_data[df_data['StandbyTime'] != False]
 
 # 解析日期時間欄位
@@ -76,12 +77,12 @@ for date in all_dates:
 # 計算每個設施每個日期每個小時的平均等待時間
 average_wait_times_per_day_hour = full_df.groupby(['FacilityEnglish', 'Date', 'Hour'])['StandbyTime'].mean().reset_index()
 
-# 保存為 CSV 格式
-output_csv_path = '/Users/chianlee/Desktop/disney/data/day_hour_avg_data_sea.csv'
-average_wait_times_per_day_hour.to_csv(output_csv_path, index=False, encoding='utf-8-sig')
+# # 保存為 CSV 格式
+# output_csv_path = '/Users/chianlee/Desktop/disney/data/day_hour_avg_data_sea.csv'
+# average_wait_times_per_day_hour.to_csv(output_csv_path, index=False, encoding='utf-8-sig')
 
 # 將結果存成 JSON 格式
-output_file_path = '/Users/chianlee/Desktop/disney/data/day_hour_avg_data_sea.json'
+output_file_path = '/Users/chianlee/Desktop/disney/data/day_hour_avg_data_land.json'
 
 # 轉換 DataFrame 為 JSON
 average_wait_times_per_day_hour.to_json(output_file_path, orient='records', lines=True, force_ascii=False)
