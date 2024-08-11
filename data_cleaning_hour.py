@@ -4,8 +4,14 @@ import json
 from datetime import timedelta
 
 # 讀取 JSON 檔案
+
+#Land
 file_path = '/Users/chianlee/Desktop/disney/data/land_data.json'
 file_path_names = '/Users/chianlee/Desktop/disney/data/land_namelist.json'
+
+# #Sea
+# file_path = '/Users/chianlee/Desktop/disney/data/sea_data.json'
+# file_path_names = '/Users/chianlee/Desktop/disney/data/sea_namelist.json'
 
 with open(file_path, 'r', encoding='utf-8') as file:
     data = json.load(file)
@@ -82,7 +88,11 @@ average_wait_times_per_day_hour = full_df.groupby(['FacilityEnglish', 'Date', 'H
 # average_wait_times_per_day_hour.to_csv(output_csv_path, index=False, encoding='utf-8-sig')
 
 # 將結果存成 JSON 格式
+#Land
 output_file_path = '/Users/chianlee/Desktop/disney/data/day_hour_avg_data_land.json'
+
+# #Sea
+# output_file_path = '/Users/chianlee/Desktop/disney/data/day_hour_avg_data_sea.json'
 
 # 轉換 DataFrame 為 JSON
 average_wait_times_per_day_hour.to_json(output_file_path, orient='records', lines=True, force_ascii=False)

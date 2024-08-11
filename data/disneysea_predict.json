@@ -370,5 +370,557 @@
         "date": "2024-09-30",
         "weekday": "Monday",
         "prediction": 16
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-01",
+        "weekday": "Tuesday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-02",
+        "weekday": "Wednesday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-03",
+        "weekday": "Thursday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-04",
+        "weekday": "Friday",
+        "prediction": 26
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-05",
+        "weekday": "Saturday",
+        "prediction": 31
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-06",
+        "weekday": "Sunday",
+        "prediction": 25
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-07",
+        "weekday": "Monday",
+        "prediction": 25
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-08",
+        "weekday": "Tuesday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-09",
+        "weekday": "Wednesday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-10",
+        "weekday": "Thursday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-11",
+        "weekday": "Friday",
+        "prediction": 24
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-12",
+        "weekday": "Saturday",
+        "prediction": 31
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-13",
+        "weekday": "Sunday",
+        "prediction": 25
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-14",
+        "weekday": "Monday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-15",
+        "weekday": "Tuesday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-16",
+        "weekday": "Wednesday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-17",
+        "weekday": "Thursday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-18",
+        "weekday": "Friday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-19",
+        "weekday": "Saturday",
+        "prediction": 31
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-20",
+        "weekday": "Sunday",
+        "prediction": 25
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-21",
+        "weekday": "Monday",
+        "prediction": 25
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-22",
+        "weekday": "Tuesday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-23",
+        "weekday": "Wednesday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-24",
+        "weekday": "Thursday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-25",
+        "weekday": "Friday",
+        "prediction": 24
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-26",
+        "weekday": "Saturday",
+        "prediction": 31
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-27",
+        "weekday": "Sunday",
+        "prediction": 25
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-28",
+        "weekday": "Monday",
+        "prediction": 25
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-29",
+        "weekday": "Tuesday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-30",
+        "weekday": "Wednesday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-10-31",
+        "weekday": "Thursday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-01",
+        "weekday": "Friday",
+        "prediction": 17
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-02",
+        "weekday": "Saturday",
+        "prediction": 31
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-03",
+        "weekday": "Sunday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-04",
+        "weekday": "Monday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-05",
+        "weekday": "Tuesday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-06",
+        "weekday": "Wednesday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-07",
+        "weekday": "Thursday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-08",
+        "weekday": "Friday",
+        "prediction": 15
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-09",
+        "weekday": "Saturday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-10",
+        "weekday": "Sunday",
+        "prediction": 16
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-11",
+        "weekday": "Monday",
+        "prediction": 16
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-12",
+        "weekday": "Tuesday",
+        "prediction": 13
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-13",
+        "weekday": "Wednesday",
+        "prediction": 13
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-14",
+        "weekday": "Thursday",
+        "prediction": 13
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-15",
+        "weekday": "Friday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-16",
+        "weekday": "Saturday",
+        "prediction": 28
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-17",
+        "weekday": "Sunday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-18",
+        "weekday": "Monday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-19",
+        "weekday": "Tuesday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-20",
+        "weekday": "Wednesday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-21",
+        "weekday": "Thursday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-22",
+        "weekday": "Friday",
+        "prediction": 15
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-23",
+        "weekday": "Saturday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-24",
+        "weekday": "Sunday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-25",
+        "weekday": "Monday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-26",
+        "weekday": "Tuesday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-27",
+        "weekday": "Wednesday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-28",
+        "weekday": "Thursday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-29",
+        "weekday": "Friday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-11-30",
+        "weekday": "Saturday",
+        "prediction": 28
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-01",
+        "weekday": "Sunday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-02",
+        "weekday": "Monday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-03",
+        "weekday": "Tuesday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-04",
+        "weekday": "Wednesday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-05",
+        "weekday": "Thursday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-06",
+        "weekday": "Friday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-07",
+        "weekday": "Saturday",
+        "prediction": 28
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-08",
+        "weekday": "Sunday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-09",
+        "weekday": "Monday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-10",
+        "weekday": "Tuesday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-11",
+        "weekday": "Wednesday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-12",
+        "weekday": "Thursday",
+        "prediction": 18
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-13",
+        "weekday": "Friday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-14",
+        "weekday": "Saturday",
+        "prediction": 28
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-15",
+        "weekday": "Sunday",
+        "prediction": 22
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-16",
+        "weekday": "Monday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-17",
+        "weekday": "Tuesday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-18",
+        "weekday": "Wednesday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-19",
+        "weekday": "Thursday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-20",
+        "weekday": "Friday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-21",
+        "weekday": "Saturday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-22",
+        "weekday": "Sunday",
+        "prediction": 21
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-23",
+        "weekday": "Monday",
+        "prediction": 28
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-24",
+        "weekday": "Tuesday",
+        "prediction": 25
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-25",
+        "weekday": "Wednesday",
+        "prediction": 25
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-26",
+        "weekday": "Thursday",
+        "prediction": 23
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-27",
+        "weekday": "Friday",
+        "prediction": 23
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-28",
+        "weekday": "Saturday",
+        "prediction": 23
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-29",
+        "weekday": "Sunday",
+        "prediction": 23
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-30",
+        "weekday": "Monday",
+        "prediction": 33
+    },
+    {
+        "region": "disneysea",
+        "date": "2024-12-31",
+        "weekday": "Tuesday",
+        "prediction": 19
     }
 ]
