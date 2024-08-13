@@ -29,12 +29,33 @@ def get_completion(messages, model="gpt-4o-mini", temperature=0, max_tokens=1000
         return obj.get("error", "Unknown error occurred")
 
 available_tools = {
-    "itinerary_making": recom.predict_and_save_recommendations,
+    "itinerary_making": recom.predict_and_return_recommendations,  
 }
 
 function_prompt = {
-    "itinerary_making": "請根據使用者需求安排出遊玩期間最有效率的行程，並標示每個設施預測的排隊時間。",
+    "itinerary_making": """ 
+    依照使用者需求安排行程，你得到的回傳資訊為各設施最佳遊玩的3個時段，遵照資訊事實安排行程。
+    每個設施行程時間為預測排隊的時間再加上20分鐘。
+
+    注意事項：
+    1. 嚴格依據提供的預測數據進行時間安排，確保每個設施的排隊時間與數據完全一致。
+    2. 務必檢查設施名稱是否正確且為官方全名，避免使用非標準或簡化名稱。
+    3. 確保每個設施只出現在行程中一次，避免重複安排。
+    4. 如果發現設施名稱與提供的數據名稱不一致，應重新生成答案，或進行校正。
+
+    行程格式範例，行程安排期間為8:00-20:00：
+    8:00-8:50 美女與野獸「城堡奇緣」
+        -預測排隊時間：27分鐘
+
+    8:50-9:15 巨雷山
+        -預測排隊時間：5分鐘
+
+    9:15-9:50 幽靈公館
+        -預測排隊時間：15分鐘
+    """,
 }
+
+
 
 def get_completion_with_function_execution(messages, model="gpt-4o-mini", temperature=0, max_tokens=800, tools=None):
     response = get_completion(messages, model, temperature, max_tokens, tools)
@@ -54,16 +75,15 @@ def get_completion_with_function_execution(messages, model="gpt-4o-mini", temper
             function_args = json.loads(tool_call["function"]["arguments"])
             function_to_call = available_tools[function_name]
             
-            # 直接將 'date' 鍵的值作為參數傳遞給函數
-            date_str = function_args['date']
-            function_response = function_to_call(date_str)
+            # 動態傳遞參數給函數，並獲取資料
+            function_response = function_to_call(**function_args)
             
             messages.append(
                 {
                     "role": "tool",
                     "tool_call_id": id,
                     "name": function_name,
-                    "content": str(function_response)
+                    "content": json.dumps(function_response, indent=4)  
                 }
             )
             messages.append(
@@ -83,7 +103,7 @@ def get_completion_with_function_execution(messages, model="gpt-4o-mini", temper
 
 
 def function_call(user_input, messages):
-    system_input = "你是使用者的迪士尼使用助手，可以幫忙安排行程，不能回答不相關的問題"
+    system_input = "你是使用者的迪士尼使用助手，可以幫忙安排行程，務必顯示正確的設施名稱，不能回答不相關的問題"
     if len(messages) == 0:
         messages.append({"role": "system", "content": system_input})
     
@@ -102,8 +122,12 @@ def function_call(user_input, messages):
                             "type": "string",
                             "description": "遊玩日期",
                         },
+                        "data_region": {
+                            "type": "string",
+                            "description": "region(land or sea)",
+                        },
                     },
-                    "required": ["date"],
+                    "required": ["date", "data_region"],
                 },
             },
         },
@@ -118,6 +142,6 @@ def function_call(user_input, messages):
 
 if __name__ == "__main__":
     messages = []
-    user_input = "我2024-08-15想去東京迪士尼陸地區，請安排行程"
+    user_input = "我2024-08-25想去東京迪士尼海洋，請安排一整天的行程，一定要玩到茉莉公主的飛天魔毯"
     response = function_call(user_input, messages)
     print(response)
