@@ -7,7 +7,7 @@ import predict_future as recom
 load_dotenv()
 openai_api_key = os.getenv('OPENAI_API_KEY')
 
-def get_completion(messages, model="gpt-4o-mini", temperature=0, max_tokens=1000, tools=None):
+def get_completion(messages, model="gpt-4o", temperature=0, max_tokens=1000, tools=None):
     payload = { "model": model, "temperature": temperature, "messages": messages, "max_tokens": max_tokens }
     if tools:
         payload["tools"] = tools
@@ -34,30 +34,31 @@ available_tools = {
 
 function_prompt = {
     "itinerary_making": """ 
-    依照使用者需求安排行程，你得到的回傳資訊為各設施最佳遊玩的3個時段，遵照資訊事實安排行程。
-    每個設施行程時間為預測排隊的時間再加上20分鐘。
+    依照使用者需求安排行程，你得到的資訊為各設施從8:00-20:00每小時的預測等候時間。
+    行程時間 = 預測排隊時間 + 20 分鐘，然後無條件進位到最近的10的倍數。
 
     注意事項：
-    1. 嚴格依據提供的預測數據進行時間安排，確保每個設施的排隊時間與數據完全一致。
+    1. 嚴格依據提供的預測數據進行時間安排，確保每個設施的排隊時間正確性。
     2. 務必檢查設施名稱是否正確且為官方全名，避免使用非標準或簡化名稱。
     3. 確保每個設施只出現在行程中一次，避免重複安排。
-    4. 如果發現設施名稱與提供的數據名稱不一致，應重新生成答案，或進行校正。
+    確認行程時間安排符合規定：
+    預測排隊時間 + 20 分鐘 = 行程時間（無條件進位至10的倍數）
 
-    行程格式範例，行程安排期間為8:00-20:00：
+    行程格式範例：
     8:00-8:50 美女與野獸「城堡奇緣」
         -預測排隊時間：27分鐘
 
-    8:50-9:15 巨雷山
+    8:50-9:20 巨雷山
         -預測排隊時間：5分鐘
 
-    9:15-9:50 幽靈公館
+    9:20-10:00 幽靈公館
         -預測排隊時間：15分鐘
     """,
 }
 
 
 
-def get_completion_with_function_execution(messages, model="gpt-4o-mini", temperature=0, max_tokens=800, tools=None):
+def get_completion_with_function_execution(messages, model="gpt-4o", temperature=0, max_tokens=800, tools=None):
     response = get_completion(messages, model, temperature, max_tokens, tools)
     
     if isinstance(response, dict) and "content" in response:
@@ -142,6 +143,6 @@ def function_call(user_input, messages):
 
 if __name__ == "__main__":
     messages = []
-    user_input = "我2024-08-25想去東京迪士尼海洋，請安排一整天的行程，一定要玩到茉莉公主的飛天魔毯"
+    user_input = "我2024-08-25想去東京迪士尼陸地，請安排一整天的行程，一定要玩到茉莉公主的飛天魔毯、安娜與艾莎的冰雪之旅"
     response = function_call(user_input, messages)
     print(response)
