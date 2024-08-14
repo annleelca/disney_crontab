@@ -35,26 +35,30 @@ available_tools = {
 
 function_prompt = {
     "itinerary_making": """ 
-    任務：安排等候時間最短的遊玩行程，從8:00到20:00整天的行程。
+    資料：各設施在不同時段適合的行程時間
+            morning = 8:00-11:00
+            noon = 11:00-14:00
+            afternoon = 14:00-17:00
+            evening = 17:00 -20:00  
+
+    任務：安排從8:00到20:00整天的行程，行程時間必須與資料中的時間完全一致，每個設施限安排一次。
 
     行程安排步驟：
     1. 列出使用者指定的遊樂設施名稱。
-    2. 找出每個指定設施中行程時間最短的時段安排。
-    3. 仔細確認設施的行程時間與資料相符。
-    4. 剩餘時段安排其他設施。
-    5. 對每個設施的行程時間進行預檢查：
-        檢查該行程段的時間是否與資料中的行程時間完全相符。
+    2. 安排時段給指定的遊樂設施，行程時間嚴格遵守資料。
+    3. 剩餘時段安排其他設施，若有空擋則安排逛街、用餐。
+    4. 對每個設施的行程時間進行預檢查：
+        檢查該行程是否與資料中的行程時間完全相符。
         若檢查中發現時間錯誤，應自動調整該行程段的時間，並動態調整後續行程段的安排。
-    6. 確保每個設施只出現在行程中一次，不允許重複安排相似的設施（（美國海濱）、（地中海港灣）視為同設施）。
-    7. 確保行程從8:00-20:00
-    8. 確保設施名稱正確無誤且為官方全名。    
+    5. 注意！不允許重複安排相似的設施，美國海濱、地中海港灣視為同設施。
+    6. 確保行程從8:00-20:00
+    7. 確保設施名稱正確無誤且為官方全名。    
 
     輸出範例：
     8:00 - 8:25 茉莉公主的飛天魔毯 
     （行程時間：25分鐘）
     8:25 - 9:00 安娜與艾莎的冰雪之旅
     （行程時間：35分鐘）
-
     """,
 }
 
@@ -103,9 +107,9 @@ def get_completion_with_function_execution(messages, model="gpt-4o", temperature
         response = get_completion(messages, model, temperature, max_tokens)
         print(f"Final response from GPT-4: {response}")
 
-        # 移除包含 "行程時間" 的行
-        response["content"] = remove_calculation_details(response["content"])
-        messages.append(response)
+        # # 移除包含 "行程時間" 的行
+        # response["content"] = remove_calculation_details(response["content"])
+        # messages.append(response)
     else:
         print("No tool calls found in the response.")
 
@@ -152,6 +156,6 @@ def function_call(user_input, messages):
 
 if __name__ == "__main__":
     messages = []
-    user_input = "我2024-08-25想去東京迪士尼陸地，一定要玩到小熊維尼獵蜜記、杯麵歡樂之旅、怪獸電力公司「迷藏巡遊車」、美女與野獸「城堡奇緣」"
+    user_input = "我2024-08-25想去東京迪士尼海洋，一定要玩到海底兩萬哩、安娜與艾莎的冰雪之旅"
     response = function_call(user_input, messages)
     print(response)

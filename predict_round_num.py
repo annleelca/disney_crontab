@@ -52,7 +52,7 @@ def predict_future_wait_times(date, visitor_predictions, data, maintenance_df, m
         if is_under_maintenance:
             continue  # 跳過維修中的設施
 
-        predicted_times = {}  # 這裡改為字典
+        predicted_times = {}
 
         for hour in range(8, 20):
             predicted_wait_time = int(np.round(np.maximum(
@@ -69,10 +69,8 @@ def predict_future_wait_times(date, visitor_predictions, data, maintenance_df, m
             # 使用 round_to_nearest_five 函數將預測等待時間四捨五入到5的倍數
             rounded_wait_time = round_to_nearest_five(predicted_wait_time)
 
-            # 直接將時間和四捨五入後的預測等待時間加入字典
-            predicted_times[f"{hour}:00"] = rounded_wait_time+20
+            predicted_times[f"{hour}:00"] = rounded_wait_time
 
-        # 修改排序邏輯，根據等待時間進行排序
         sorted_times = sorted(predicted_times.items(), key=lambda x: x[1])[:62]
 
         facility_info = facility_name_mapping.get(facility_mapping[facility], {})
@@ -86,12 +84,10 @@ def predict_future_wait_times(date, visitor_predictions, data, maintenance_df, m
                 facility_key: f"wait {wait_time} min"
             })
 
-    # 按時間段對 time_slot_recommendations 進行排序
     sorted_time_slot_recommendations = dict(sorted(time_slot_recommendations.items()))
 
     return future_data, sorted_time_slot_recommendations, detailed_times_data
 
-# 修改後的 generate_future_land 函數
 def generate_future_land(date, data_region):
     model = joblib.load(f'models/wait_time_model_{data_region}.pkl')
     facility_mapping = joblib.load(f'models/facility_mapping_{data_region}.pkl')
@@ -104,24 +100,19 @@ def generate_future_land(date, data_region):
     )
     data, _ = feature_engineering(data)
     
-    # 這裡的 `future_data` 和 `sorted_time_slot_recommendations` 並不會返回或被印出來
     future_data, sorted_time_slot_recommendations, detailed_times_data = predict_future_wait_times(date, visitor_predictions, data, maintenance_df, model, facility_mapping, facility_name_mapping)
 
-    # 只返回 `detailed_times_data`
     return future_data, sorted_time_slot_recommendations, detailed_times_data
 
 def save_recommendations(future_data, sorted_time_slot_recommendations, detailed_times_data, date, data_region):
-    # 保存未整理的推薦時間數據
     output_file = f'data/predict/recom_{data_region}_{date}.json'
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(future_data, f, indent=4, ensure_ascii=False)
 
-    # 保存按時段整理的推薦設施數據
     output_file_by_time = f'data/predict/recom_{data_region}_{date}_by_time.json'
     with open(output_file_by_time, 'w', encoding='utf-8') as f:
         json.dump(sorted_time_slot_recommendations, f, indent=4, ensure_ascii=False)
 
-    # 保存每個設施各時段等候時間數據
     output_file_detailed = f'data/predict/detailed_{data_region}_{date}.json'
     with open(output_file_detailed, 'w', encoding='utf-8') as f:
         json.dump(detailed_times_data, f, indent=4, ensure_ascii=False)
@@ -131,12 +122,33 @@ def predict_and_save_recommendations(date, data_region):
     save_recommendations(future_data, sorted_time_slot_recommendations, detailed_times_data, date, data_region)
 
 def predict_and_return_recommendations(date, data_region):
-    _, _, detailed_times_data = generate_future_land(date, data_region)
-    print(detailed_times_data)
-    return detailed_times_data  # 直接返回資料
+    future_data, _, detailed_times_data = generate_future_land(date, data_region)
+    
+    time_slots = {
+        "morning": range(8, 11),
+        "noon": range(11, 14),
+        "afternoon": range(14, 17),
+        "evening": range(17, 20)
+    }
+    
+    recommendations = {}
+    
+    for facility, times in detailed_times_data.items():
+        slot_predictions = {}
+        for slot, hours in time_slots.items():
+            wait_times = [times[f"{hour}:00"] for hour in hours if f"{hour}:00" in times]
+            if wait_times:
+                average_wait_time = round_to_nearest_five(np.mean(wait_times)+20)
+            else:
+                average_wait_time = None
+            slot_predictions[slot] = average_wait_time
+        
+        recommendations[facility] = slot_predictions
+    print(recommendations)
+    return recommendations
 
-# 主程式調用範例
 if __name__ == "__main__":
     date = input("請輸入要預測的日期 (格式：YYYY-MM-DD)：")
     data_region = input("請輸入資料區域 (Land 或 Sea)：").strip().lower()
-    predict_and_return_recommendations(date, data_region)
+    results = predict_and_return_recommendations(date, data_region)
+    print(results)
