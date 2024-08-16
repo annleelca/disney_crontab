@@ -2,8 +2,9 @@ import requests
 import os
 import json
 from dotenv import load_dotenv
-import predict_round_num as recom
+import predict_round_num as itin
 import itinerary_calculation as cal
+import recommend as recom
 
 load_dotenv()
 openai_api_key = os.getenv('OPENAI_API_KEY')
@@ -17,7 +18,9 @@ def get_completion(messages, model="gpt-4o", temperature=0, max_tokens=1000, too
     response = requests.post('https://api.openai.com/v1/chat/completions', headers=headers, data=json.dumps(payload))
 
     try:
-        obj = response.json()
+        # 先將回應內容解碼為 UTF-8 編碼，然後再轉換為 JSON 物件
+        response_text = response.content.decode('utf-8')
+        obj = json.loads(response_text)
     except json.JSONDecodeError:
         print("Error: Response decoding failed")
         return {"error": "Response decoding failed"}
@@ -29,20 +32,21 @@ def get_completion(messages, model="gpt-4o", temperature=0, max_tokens=1000, too
         print(f"Error: API call failed with status code {response.status_code}")
         return obj.get("error", "Unknown error occurred")
 
-available_tools = {
-    "itinerary_making": recom.predict_and_return_recommendations,  
-}
 
+available_tools = {
+    "itinerary_making": itin.predict_and_return_recommendations, 
+    "recommend": recom.recommend,   
+}
 function_prompt = {
-"itinerary_making": """ 
-    任務：根據使用者需求安排一日多元行程，確保整個行程中各設施僅安排一次，禁止在不同時段內重複安排同一設施。
+    "itinerary_making": """ 
+    任務：根據使用者需求安排一日多元行程，整個行程中各設施僅安排一次，禁止在不同時段重複安排同一設施。
 
     安排行程步驟：
     1. 列出使用者指定的遊樂設施名稱。
     2. 根據各設施在不同時段的預測等待時間，優先選擇尚未安排過的設施，以確保行程多樣且無重複。
     3. 嚴格避免在不同時段內安排同類型或名稱相似的設施。
     4. 剩餘時段安排其他尚未安排的設施，確保整個行程豐富多樣。
-    5. 確保各時段的行程總計接近190分鐘，無需重複安排設施來填滿時間。
+    5. 確保各時段的行程總計接近180分鐘，無需重複安排設施來填滿時間。
     6. 生成行程後，檢查整個行程，確保沒有設施在不同時段內重複安排。若有重複，則重新生成行程。
 
     輸出格式：
@@ -52,7 +56,10 @@ function_prompt = {
     evening: 設施7, 設施8, ...
 
     注意！生成行程後，檢查整個行程，確保沒有設施在不同時段內重複安排。如果發現重複，則重新生成行程。
-    """
+    """,
+    "recommend": """
+    根據使用者問題，依照事實回答問題，精簡回答，限定最多150字
+    """,
 }
 
 def get_completion_with_function_execution(messages, model="gpt-4o", temperature=0, max_tokens=800, tools=None):
@@ -127,10 +134,31 @@ def function_call(user_input, messages):
                             "description": "region(land or sea)",
                         },
                     },
-                    "required": ["date", "data_region"],
+                    "required": ["date", "data region"],
                 },
             },
         },
+        {
+    "type": "function",
+    "function": {
+        "name": "recommend",
+        "description": "依照使用者需求，提供適合的遊樂設施、商店或餐廳資訊",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "data_region": {
+                    "type": "string",
+                    "description": "region (land or sea)"
+                },
+                "recommend_type": {
+                    "type": "string",
+                    "description": "facility, store, or food"
+                }
+            },
+            "required": ["data_region", "recommend_type"]
+        }
+    }
+}
     ]
     
     response = get_completion_with_function_execution(messages, tools=tools)
@@ -138,6 +166,7 @@ def function_call(user_input, messages):
 
 if __name__ == "__main__":
     messages = []
-    user_input = "我08-25想去東京迪士尼海洋，一定要玩到樂佩公主天燈盛會、安娜與艾莎的冰雪之旅、玩具總動員瘋狂遊戲屋"
+    user_input = "我10/30想去東京迪士尼海洋，幫我排行程一定要玩到安娜與艾莎的冰雪之旅、玩具總動員瘋狂遊戲屋"
+    # user_input = "請推薦我迪士尼海洋區刺激的設施"
     response = function_call(user_input, messages)
     print(response)  
