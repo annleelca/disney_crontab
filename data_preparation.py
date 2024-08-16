@@ -1,7 +1,5 @@
 import pandas as pd
-import numpy as np
 import json
-from datetime import datetime
 
 def read_and_prepare_data(wait_times_path, visitor_predictions_path, maintenance_data_path):
     # 讀取等候時間數據

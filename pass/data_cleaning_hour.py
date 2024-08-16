@@ -33,8 +33,13 @@ df_data = df_data[df_data['StandbyTime'] != False]
 df_data['UpdateTime'] = pd.to_datetime(df_data['UpdateTime'], format='%H:%M')
 df_data['datetime'] = pd.to_datetime(df_data['datetime'])
 
-# 將所有 datetime 欄位加上一小時
-df_data['datetime'] = df_data['datetime'] + pd.Timedelta(hours=1)
+# # 將所有 datetime 欄位加上一小時
+# df_data['datetime'] = df_data['datetime'] + pd.Timedelta(hours=1)
+
+# 根據日期條件來調整 datetime 欄位(考量時差)
+df_data['datetime'] = df_data['datetime'].apply(
+    lambda dt: dt + pd.Timedelta(hours=1) if dt.date() < pd.Timestamp('2023-08-16').date() else dt + pd.Timedelta(hours=2)
+)
 
 # 提取日期並應用於 UpdateTime
 df_data['UpdateTime'] = df_data.apply(

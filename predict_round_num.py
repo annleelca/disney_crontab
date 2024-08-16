@@ -26,6 +26,7 @@ def round_to_nearest_five(x):
     """將數值四捨五入到最接近的5的倍數"""
     return int(round(x / 5) * 5)
 
+#visitor_predictions資料只到2024-12-31
 def predict_future_wait_times(date, visitor_predictions, data, maintenance_df, model, facility_mapping, facility_name_mapping):
     date = pd.to_datetime(date).normalize()
     visitor_prediction = visitor_predictions[visitor_predictions['date'] == date]
@@ -63,7 +64,7 @@ def predict_future_wait_times(date, visitor_predictions, data, maintenance_df, m
                     'DayOfWeek': day_of_week,
                     'FacilityCode': facility,
                     'TimeWindow': 0 if hour < 12 else (1 if hour < 18 else 2),
-                    'IsUnderMaintenance': 0  # 保留特徵，但設定為0表示未維修
+                    'IsUnderMaintenance': 0  # 保留特徵，設定為0表示未維修
                 }])), 0)).astype(int)[0])
 
             # 使用 round_to_nearest_five 函數將預測等待時間四捨五入到5的倍數
@@ -88,6 +89,7 @@ def predict_future_wait_times(date, visitor_predictions, data, maintenance_df, m
 
     return future_data, sorted_time_slot_recommendations, detailed_times_data
 
+#用train好的模型預測
 def generate_future_land(date, data_region):
     model = joblib.load(f'models/wait_time_model_{data_region}.pkl')
     facility_mapping = joblib.load(f'models/facility_mapping_{data_region}.pkl')
@@ -104,26 +106,30 @@ def generate_future_land(date, data_region):
 
     return future_data, sorted_time_slot_recommendations, detailed_times_data
 
-def save_recommendations(future_data, sorted_time_slot_recommendations, detailed_times_data, date, data_region):
-    output_file = f'data/predict/recom_{data_region}_{date}.json'
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(future_data, f, indent=4, ensure_ascii=False)
+    # #儲存預測（三版本）
+    # def save_recommendations(future_data, sorted_time_slot_recommendations, detailed_times_data, date, data_region):
+    #     output_file = f'data/predict/recom_{data_region}_{date}.json'
+    #     with open(output_file, 'w', encoding='utf-8') as f:
+    #         json.dump(future_data, f, indent=4, ensure_ascii=False)
 
-    output_file_by_time = f'data/predict/recom_{data_region}_{date}_by_time.json'
-    with open(output_file_by_time, 'w', encoding='utf-8') as f:
-        json.dump(sorted_time_slot_recommendations, f, indent=4, ensure_ascii=False)
+    #     output_file_by_time = f'data/predict/recom_{data_region}_{date}_by_time.json'
+    #     with open(output_file_by_time, 'w', encoding='utf-8') as f:
+    #         json.dump(sorted_time_slot_recommendations, f, indent=4, ensure_ascii=False)
 
-    output_file_detailed = f'data/predict/detailed_{data_region}_{date}.json'
-    with open(output_file_detailed, 'w', encoding='utf-8') as f:
-        json.dump(detailed_times_data, f, indent=4, ensure_ascii=False)
+    #     output_file_detailed = f'data/predict/detailed_{data_region}_{date}.json'
+    #     with open(output_file_detailed, 'w', encoding='utf-8') as f:
+    #         json.dump(detailed_times_data, f, indent=4, ensure_ascii=False)
 
-def predict_and_save_recommendations(date, data_region):
-    future_data, sorted_time_slot_recommendations, detailed_times_data = generate_future_land(date, data_region)
-    save_recommendations(future_data, sorted_time_slot_recommendations, detailed_times_data, date, data_region)
+    # #存檔預測
+    # def predict_and_save_recommendations(date, data_region):
+    #     future_data, sorted_time_slot_recommendations, detailed_times_data = generate_future_land(date, data_region)
+    #     save_recommendations(future_data, sorted_time_slot_recommendations, detailed_times_data, date, data_region)
 
+#顯示預測(依時段)
 def predict_and_return_recommendations(date, data_region):
     future_data, _, detailed_times_data = generate_future_land(date, data_region)
     
+    #四時段（早、中、下午、晚），簡化數據避免GPT算錯
     time_slots = {
         "morning": range(8, 11),
         "noon": range(11, 14),
